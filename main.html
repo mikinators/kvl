@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KVL - Izpēti un Uzvari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --text-color: #202124;
+            --bg-color: #ffffff;
+            --secondary-bg: #f8f9fa;
+            --border-color: #dadce0;
+        }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .smooth-transition {
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-blue-600 tracking-tight">KVL</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#sakums" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium smooth-transition">Sākums</a>
+                    <a href="#spele" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium smooth-transition">Par Spēli</a>
+                    <a href="#ka-spelet" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium smooth-transition">Kā Spēlēt</a>
+                    <a href="#kontakti" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium smooth-transition">Kontakti</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMenu()" class="text-gray-700 hover:text-blue-600 p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
+            <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="#sakums" onclick="toggleMenu()" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Sākums</a>
+                <a href="#spele" onclick="toggleMenu()" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Par Spēli</a>
+                <a href="#ka-spelet" onclick="toggleMenu()" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Kā Spēlēt</a>
+                <a href="#kontakti" onclick="toggleMenu()" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Kontakti</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="sakums" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div class="text-center">
+            <h1 class="text-5xl md:text-7xl font-bold text-gray-900 tracking-tight mb-6">
+                KVL
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto font-light">
+                Izpēti nezināmo. Pārvari izaicinājumus. Atklāj patiesību.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button onclick="scrollToSection('spele')" class="bg-blue-600 text-white px-8 py-3 rounded-full text-base font-medium hover:bg-blue-700 smooth-transition hover:shadow-lg">
+                    Uzzināt Vairāk
+                </button>
+                <button onclick="scrollToSection('ka-spelet')" class="bg-white text-blue-600 border border-gray-300 px-8 py-3 rounded-full text-base font-medium hover:border-blue-600 smooth-transition">
+                    Kā Spēlēt
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Overview -->
+    <section id="spele" class="py-16 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Kas ir KVL?</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        KVL ir unikāla pieredze, kas apvieno stratēģiju, izpēti un stāstniecību vienotā piedzīvojumā. 
+                        Spēle aizved tevi cauri noslēpumainai pasaulei, kur katrs lēmums ietekmē tavu ceļu uz priekšu.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Bez lejupielādēm un instalēšanas - spēlē tieši savā pārlūkprogrammā jebkurā ierīcē.
+                    </p>
+                    <div class="flex items-center gap-2 text-blue-600 font-medium">
+                        <i data-lucide="gamepad-2" class="w-5 h-5"></i>
+                        <span>Tiešsaistes pieredze</span>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://static.photos/technology/1024x576/42" alt="KVL Spēles attēls" class="rounded-lg shadow-lg w-full object-cover">
+                    <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-lg shadow-md border border-gray-100 hidden md:block">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-blue-100 p-2 rounded-full">
+                                <i data-lucide="users" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-gray-900">10,000+ Spēlētāju</p>
+                                <p class="text-xs text-gray-500">No visas pasaules</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Galvenās Iespējas</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl border border-gray-200 smooth-transition hover-lift">
+                    <div class="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="compass" class="w-6 h-6 text-blue-600"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Izpēte</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Atklāj plašu pasauli ar noslēpumiem un slēptiem ceļiem katrā stūrī.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border border-gray-200 smooth-transition hover-lift">
+                    <div class="bg-red-50 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="brain" class="w-6 h-6 text-red-600"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Stratēģija</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Katrs lēmums ir svarīgs. Plāno savas darbības un pārvari intelektuālos izaicinājumus.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border border-gray-200 smooth-transition hover-lift">
+                    <div class="bg-green-50 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="infinity" class="w-6 h-6 text-green-600"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Bezgalīgi</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Unikāla pieredze katrā spēles reizē. Nekad nav divu vienādu spēļu.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Play -->
+    <section id="ka-spelet" class="py-16 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Kā Sākt Spēlēt</h2>
+            <div class="space-y-8">
+                <div class="flex flex-col md:flex-row gap-6 items-start bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex-shrink-0 bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">1</div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Atver Pārlūkprogrammu</h3>
+                        <p class="text-gray-600">Nav nepieciešama lejupielāde vai instalēšana. KVL darbojas jebkurā modernā pārlūkprogrammā - Chrome, Firefox, Safari vai Edge.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6 items-start bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex-shrink-0 bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">2</div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Ieej Sistēmā</h3>
+                        <p class="text-gray-600">Izveido bezmaksas kontu vai spēlē kā viesis. Tavs progress tiek saglabāts automātiski mākonī.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-6 items-start bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex-shrink-0 bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">3</div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Sāc Piedzīvojumu</h3>
+                        <p class="text-gray-600">Izvēlies savu ceļu un sākums! Katrs spēlētājs izveido savu unikālo stāstu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="kontakti" class="py-16">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Sazinies ar Mums</h2>
+            <p class="text-gray-600 mb-8">Jautājumi? Ierosinājumi? Mēs esam šeit, lai palīdzētu.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-8">
+                <a href="mailto:support@kvl.lv" class="flex items-center justify-center gap-2 text-gray-700 hover:text-blue-600 smooth-transition">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                    <span>support@kvl.lv</span>
+                </a>
+                <a href="#" class="flex items-center justify-center gap-2 text-gray-700 hover:text-blue-600 smooth-transition">
+                    <i data-lucide="twitter" class="w-5 h-5"></i>
+                    <span>@KVLGame</span>
+                </a>
+            </div>
+
+            <form class="max-w-md mx-auto space-y-4 text-left">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Vārds</label>
+                    <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none smooth-transition" placeholder="Tavs vārds">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">E-pasts</label>
+                    <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none smooth-transition" placeholder="tavs@epasts.lv">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Ziņa</label>
+                    <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none smooth-transition" placeholder="Tava ziņa..."></textarea>
+                </div>
+                <button type="button" class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 smooth-transition">
+                    Nosūtīt Ziņu
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 py-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <span class="text-xl font-bold text-gray-900">KVL</span>
+                <span class="text-gray-400">|</span>
+                <span class="text-sm text-gray-500">© 2024 Visas tiesības aizsargātas</span>
+            </div>
+            <div class="flex gap-6 text-sm text-gray-600">
+                <a href="#" class="hover:text-blue-600 smooth-transition">Privātums</a>
+                <a href="#" class="hover:text-blue-600 smooth-transition">Noteikumi</a>
+                <a href="#" class="hover:text-blue-600 smooth-transition">Palīdzība</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Smooth scroll to section
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                const offset = 80; // Account for fixed header
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Close mobile menu on resize if open
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
